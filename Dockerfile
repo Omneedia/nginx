@@ -14,4 +14,6 @@ COPY ./www /var/www
 COPY ./log /var/log
 COPY ./certs /etc/certs
 
+RUN mkdir -p /var/www/certbot
+
 ENTRYPOINT [ "/entry.sh" ]
