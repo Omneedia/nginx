@@ -1,4 +1,4 @@
-namespace: omneedia-web
+namespace: omneedia-core-web
 id: omneedia/nginx
 
 NGINX Image (with auto-reload feature)
