@@ -9,7 +9,7 @@ ENV WATCH_FILES "/etc/nginx /etc/certs"
 RUN rm -Rvf /etc/nginx
 RUN mkdir /etc/nginx
 
-COPY ./nginx /etc/nginx
+COPY ./config /etc/nginx
 COPY ./www /var/www
 COPY ./log /var/log
 COPY ./certs /etc/certs
