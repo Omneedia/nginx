@@ -1,0 +1,2 @@
+docker build -t omneedia/nginx:1.0.10 .
+docker push omneedia/nginx:1.0.10

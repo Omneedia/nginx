@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>omneedia</title>
+    <script src="tagcanvas.min.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="animate.min.css">
+    <style>
+        #tagcanvas {
+            display: inline-block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .projects_container {
+            display: inline-block;
+            position: fixed;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 30px;
+            height: 120px;
+            width: 500px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function animateCSS(element, animationName, callback) {
+            const node = document.querySelector(element)
+            node.classList.add('animated', animationName)
+
+            function handleAnimationEnd() {
+                node.classList.remove('animated', animationName)
+                node.removeEventListener('animationend', handleAnimationEnd)
+
+                if (typeof callback === 'function') callback()
+            }
+
+            node.addEventListener('animationend', handleAnimationEnd)
+        }
+    </script>
+</head>
+
+<body>
+
+    <div style="display: none">
+        <div id="taglist">
+            <ul>
+                <li><a href="#fake3">Hello</a></li>
+                <li><a href="#fake3">Bonjour</a></li>
+                <li><a href="#fake3">Hallo</a></li>
+                <li><a href="#fake4">مرحبا</a></li>
+                <li><a href="#fake5">שלום</a></li>
+                <li><a href="#fake6">Привет</a></li>
+                <li><a href="#fake7">Hola</a></li>
+                <li><a href="#fake8">Ciao</a></li>
+                <li><a href="#fake9">Saluton</a></li>
+                <li><a href="#fake10">こんにちは</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="projects_container" style="position:absolute;z-index:999999;left:0px;top:0px;width:100%;height:100%;text-align:center">
+        <img width=60 height=60 style="position:relative;top:10px;margin-right:0px" src="logo.png"></img>
+        <div style="font-weight:bold;color:#005EB8;text-align:center;position:relative;font-family:Helvetica,Tahoma, Geneva, Verdana, sans-serif;font-size:35px">omneedia</div>
+        <script>
+            animateCSS('.projects_container', 'fadeInDownBig');
+        </script>
+    </div>
+    <canvas id="tagcanvas" width="640" height="480"
+        style="position:absolute;top:0px;left:0px;max-width: 640px; width: 100%;">
+    </canvas>
+    <script>
+        var oopts = {
+            textFont: 'Impact,Arial Black,sans-serif',
+            textHeight: 20,
+            maxSpeed: 0.1,
+            decel: 0.9,
+            depth: 0.99,
+            outlineColour: '#f6f',
+            outlineThickness: 3,
+            pulsateTo: 0.2,
+            pulsateTime: 0.5,
+            wheelZoom: false
+        }, ttags = 'taglist', lock, shape = 'sphere';
+        window.onload = function () {
+            TagCanvas.textFont = 'Trebuchet MS, Helvetica, sans-serif';
+            TagCanvas.textColour = '#00f';
+            TagCanvas.textHeight = 25;
+            TagCanvas.outlineMethod = 'block';
+            TagCanvas.outlineColour = '#acf';
+            TagCanvas.maxSpeed = 0.03;
+            TagCanvas.minBrightness = 0.2;
+            TagCanvas.depth = 0.92;
+            TagCanvas.pulsateTo = 0.6;
+            TagCanvas.initial = [0.1, -0.1];
+            TagCanvas.decel = 0.98;
+            TagCanvas.reverse = true;
+            TagCanvas.hideTags = false;
+            TagCanvas.shadow = '#ccf';
+            TagCanvas.shadowBlur = 3;
+            TagCanvas.weight = false;
+            TagCanvas.imageScale = null;
+            TagCanvas.fadeIn = 1000;
+            TagCanvas.clickToFront = 600;
+            try {
+                TagCanvas.Start('tagcanvas', 'taglist');
+            } catch (e) {
+                document.getElementById('cmsg').style.display = 'none';
+                document.getElementsByTagName('canvas')[0].style.border = '0';
+            }
+        };
+    </script>
+</body>
+
+</html>
