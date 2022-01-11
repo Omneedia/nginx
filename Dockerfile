@@ -13,7 +13,7 @@ COPY ./config /etc/nginx
 COPY ./www /var/www
 COPY ./log /var/log
 
-RUN mkdir -p /etc/certs
+RUN mkdir -p /etc/nginx/certs
 RUN mkdir -p /var/www/certbot
 
 ENTRYPOINT [ "/entry.sh" ]
