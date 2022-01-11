@@ -2,8 +2,8 @@
 
 ls /etc/nginx/certs/fullchain.pem >/dev/null 2>&1
 if [ ! $? = 0 ]; then
-  openssl genrsa -out /etc/certs/privkey.pem 2048 
-  openssl req -nodes -new -x509 -subj "/C=FR/ST=PACA/L=Marseille/O=Omneedia/OU=omneedia/CN=com/emailAddress=dummy@fake-cert.com" -key /etc/certs/privkey.pem > /etc/certs/fullchain.pem   
+  openssl genrsa -out /etc/nginx/certs/privkey.pem 2048 
+  openssl req -nodes -new -x509 -subj "/C=FR/ST=PACA/L=Marseille/O=Omneedia/OU=omneedia/CN=com/emailAddress=dummy@fake-cert.com" -key /etc/nginx/certs/privkey.pem > /etc/nginx/certs/fullchain.pem   
 fi
 
 watch_certs () {
