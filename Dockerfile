@@ -12,6 +12,7 @@ RUN mkdir /etc/nginx
 COPY ./config /etc/nginx
 COPY ./www /var/www
 COPY ./log /var/log
+COPY ./offline /var/offline
 
 RUN mkdir -p /etc/nginx/certs
 RUN mkdir -p /var/www/certbot
